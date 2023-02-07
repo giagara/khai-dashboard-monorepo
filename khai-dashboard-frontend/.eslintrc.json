@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
@@ -8,7 +9,7 @@
   "plugins": [
     "prettier",
     "react",
-    "react-hooks"
+    //"react-hooks"
   ],
   "rules": {
     "@next/next/no-img-element": "off",

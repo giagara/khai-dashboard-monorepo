@@ -43,4 +43,14 @@ class User extends Authenticatable
         'password',
     ];
 
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->passwd;
+    }
+
 }

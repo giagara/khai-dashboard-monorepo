@@ -60,10 +60,7 @@ const reducer = (state, action) => (handlers[action.type] ? handlers[action.type
 export const AuthContext = createContext({
   ...initialState,
   issuer: Issuer.JWT,
-  signIn: () => {
-    debugger;
-    console.log('OK');
-  },
+  signIn: () => Promise.resolve(),
   signUp: () => Promise.resolve(),
   signOut: () => Promise.resolve(),
 });
@@ -116,8 +113,9 @@ export const AuthProvider = (props) => {
   );
 
   const signIn = useCallback(
-    async (email, password) => {
-      const { accessToken } = await authApi.signIn({ email, password });
+    async (username, password) => {
+      debugger;
+      const { accessToken } = await authApi.signIn({ username, password });
       const user = await authApi.me({ accessToken });
 
       localStorage.setItem(STORAGE_KEY, accessToken);

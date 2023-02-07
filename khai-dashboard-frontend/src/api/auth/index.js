@@ -8,11 +8,12 @@ class AuthApi {
   async signIn(request) {
     const { username, password } = request;
 
-    await wait(500);
+    await wait(100);
 
     return new Promise((resolve, reject) => {
       try {
         // Find the user
+        debugger;
         axios
           .post('login', {
             username: username,
