@@ -13,13 +13,13 @@ class AuthApi {
     return new Promise((resolve, reject) => {
       try {
         // Find the user
-        debugger;
         axios
           .post('login', {
             username: username,
             password: password,
           })
           .then((response) => {
+            debugger;
             const user = response.data;
 
             if (!user) {
@@ -28,8 +28,8 @@ class AuthApi {
             }
 
             // const accessToken = sign({ userId: user.id }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
-            const accessToken = user.token;
-            resolve({ accessToken });
+            //const accessToken = user.token;
+            resolve({ user });
           });
 
         // Create the access token
@@ -78,28 +78,23 @@ class AuthApi {
   }
 
   me(request) {
-    const { accessToken } = request;
+    debugger;
+    const { user } = request;
 
     return new Promise((resolve, reject) => {
       try {
         // Decode access token
-        const { userId } = decode(accessToken);
+        // const { userId } = decode(accessToken);
 
-        // Find the user
-        const user = users.find((user) => user.id === userId);
+        // // Find the user
+        // const user = users.find((user) => user.id === userId);
 
-        if (!user) {
-          reject(new Error('Invalid authorization token'));
-          return;
-        }
+        // if (!user) {
+        //   reject(new Error('Invalid authorization token'));
+        //   return;
+        // }
 
-        resolve({
-          id: user.id,
-          avatar: user.avatar,
-          email: user.email,
-          name: user.name,
-          plan: user.plan,
-        });
+        resolve(user);
       } catch (err) {
         console.error('[Auth Api]: ', err);
         reject(new Error('Internal server error'));

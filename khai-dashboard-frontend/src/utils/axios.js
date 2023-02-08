@@ -1,14 +1,17 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
-import { URLS } from "../config";
+import { URLS, AXIOS_HEADER } from "../config";
 
 const instance = axios.create({
     baseURL: URLS.backend,
     timeout: 5000,
-    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-    
-    withCredentials: true,
 });
+
+instance.defaults.baseURL = URLS.backend;
+
+instance.defaults.headers = AXIOS_HEADER;
+
+instance.defaults.withCredentials = true;
 
 // Request interceptor. Runs before your request reaches the server
 const onRequest = (config) => {
@@ -35,7 +38,7 @@ const setCSRFToken = () => {
 }
 
 // attach your interceptor
-instance.interceptors.request.use(onRequest, null);
+// instance.interceptors.request.use(onRequest, null);
 
 
 export default instance;

@@ -32,3 +32,9 @@ export const mapboxConfig = {
 export const URLS = {
   backend: "http://localhost:8000/api/v1/"
 }
+
+export const AXIOS_HEADER = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  "Access-Control-Allow-Origin": "*",
+};

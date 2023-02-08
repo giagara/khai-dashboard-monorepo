@@ -25,7 +25,10 @@ return [
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => [
+        'Access-Control-Allow-Credentials' => 'true',
+        'Access-Control-Expose-Headers' => 'Content-Disposition',
+    ],
 
     'max_age' => 0,
 

@@ -55,7 +55,6 @@ const Page = () => {
     validationSchema,
     onSubmit: async (values, helpers) => {
       try {
-        debugger;
         await signIn(values.email, values.password);
 
         if (isMounted()) {

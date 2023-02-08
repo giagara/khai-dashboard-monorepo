@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { authApi } from '../../api/auth';
 import { Issuer } from '../../utils/auth';
 
-const STORAGE_KEY = 'accessToken';
+const STORAGE_KEY = 'user';
 
 var ActionType;
 (function (ActionType) {
@@ -71,10 +71,10 @@ export const AuthProvider = (props) => {
 
   const initialize = useCallback(async () => {
     try {
-      const accessToken = localStorage.getItem(STORAGE_KEY);
+      const user = localStorage.getItem(STORAGE_KEY);
 
-      if (accessToken) {
-        const user = await authApi.me({ accessToken });
+      if (user) {
+        //const user = await authApi.me({ accessToken });
 
         dispatch({
           type: ActionType.INITIALIZE,
@@ -114,11 +114,9 @@ export const AuthProvider = (props) => {
 
   const signIn = useCallback(
     async (username, password) => {
-      debugger;
-      const { accessToken } = await authApi.signIn({ username, password });
-      const user = await authApi.me({ accessToken });
+      const user = await authApi.signIn({ username, password });
 
-      localStorage.setItem(STORAGE_KEY, accessToken);
+      localStorage.setItem(STORAGE_KEY, user);
 
       dispatch({
         type: ActionType.SIGN_IN,
@@ -135,7 +133,7 @@ export const AuthProvider = (props) => {
       const { accessToken } = await authApi.signUp({ email, name, password });
       const user = await authApi.me({ accessToken });
 
-      localStorage.setItem(STORAGE_KEY, accessToken);
+      localStorage.setItem(STORAGE_KEY, user);
 
       dispatch({
         type: ActionType.SIGN_UP,

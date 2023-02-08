@@ -48,7 +48,7 @@ const Page = () => {
     onSubmit: async (values, helpers) => {
 
       try {
-        debugger;
+        
         await signIn(values.username, values.password);
 
         if (isMounted()) {
