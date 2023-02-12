@@ -58,28 +58,34 @@ const deleteTask = (params) => async (dispatch) => {
 const addComment = (params) => async (dispatch) => {
   const response = await kanbanApi.addComment(params);
 
-  dispatch(slice.actions.addComment({
-    taskId: params.taskId,
-    comment: response
-  }));
+  dispatch(
+    slice.actions.addComment({
+      taskId: params.taskId,
+      comment: response,
+    })
+  );
 };
 
 const addChecklist = (params) => async (dispatch) => {
   const response = await kanbanApi.addChecklist(params);
 
-  dispatch(slice.actions.addChecklist({
-    taskId: params.taskId,
-    checklist: response
-  }));
+  dispatch(
+    slice.actions.addChecklist({
+      taskId: params.taskId,
+      checklist: response,
+    })
+  );
 };
 
 const updateChecklist = (params) => async (dispatch) => {
   const response = await kanbanApi.updateChecklist(params);
 
-  dispatch(slice.actions.updateChecklist({
-    taskId: params.taskId,
-    checklist: response
-  }));
+  dispatch(
+    slice.actions.updateChecklist({
+      taskId: params.taskId,
+      checklist: response,
+    })
+  );
 };
 
 const deleteChecklist = (params) => async (dispatch) => {
@@ -91,21 +97,25 @@ const deleteChecklist = (params) => async (dispatch) => {
 const addCheckItem = (params) => async (dispatch) => {
   const response = await kanbanApi.addCheckItem(params);
 
-  dispatch(slice.actions.addCheckItem({
-    taskId: params.taskId,
-    checklistId: params.checklistId,
-    checkItem: response
-  }));
+  dispatch(
+    slice.actions.addCheckItem({
+      taskId: params.taskId,
+      checklistId: params.checklistId,
+      checkItem: response,
+    })
+  );
 };
 
 const updateCheckItem = (params) => async (dispatch) => {
   const response = await kanbanApi.updateCheckItem(params);
 
-  dispatch(slice.actions.updateCheckItem({
-    taskId: params.taskId,
-    checklistId: params.checklistId,
-    checkItem: response
-  }));
+  dispatch(
+    slice.actions.updateCheckItem({
+      taskId: params.taskId,
+      checklistId: params.checklistId,
+      checkItem: response,
+    })
+  );
 };
 
 const deleteCheckItem = (params) => async (dispatch) => {
@@ -130,5 +140,5 @@ export const thunks = {
   updateCheckItem,
   updateChecklist,
   updateColumn,
-  updateTask
+  updateTask,
 };

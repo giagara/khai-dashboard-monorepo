@@ -13,11 +13,11 @@ export const createPalette = (config) => {
       disabledBackground: alpha(neutral[900], 0.12),
       focus: alpha(neutral[900], 0.16),
       hover: alpha(neutral[900], 0.04),
-      selected: alpha(neutral[900], 0.12)
+      selected: alpha(neutral[900], 0.12),
     },
     background: {
       default: contrast === 'high' ? neutral[50] : common.white,
-      paper: common.white
+      paper: common.white,
     },
     divider: '#F2F4F7',
     error,
@@ -29,8 +29,8 @@ export const createPalette = (config) => {
     text: {
       primary: neutral[900],
       secondary: neutral[500],
-      disabled: alpha(neutral[900], 0.38)
+      disabled: alpha(neutral[900], 0.38),
     },
-    warning
+    warning,
   };
 };

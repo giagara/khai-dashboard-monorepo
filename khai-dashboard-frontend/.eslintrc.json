@@ -8,7 +8,7 @@
   ],
   "plugins": [
     "prettier",
-    "react",
+    "react"
     //"react-hooks"
   ],
   "rules": {

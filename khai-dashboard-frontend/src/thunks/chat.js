@@ -45,5 +45,5 @@ export const thunks = {
   getThread,
   getThreads,
   markThreadAsSeen,
-  setCurrentThread
+  setCurrentThread,
 };

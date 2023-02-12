@@ -3,54 +3,57 @@ export const paths = {
   checkout: '/checkout',
   contact: '/contact',
   pricing: '/pricing',
+  pages: {
+    applications: '/applications',
+  },
   auth: {
     auth0: {
       callback: '/auth/auth0/callback',
-      login: '/auth/auth0/login'
+      login: '/auth/auth0/login',
     },
     jwt: {
       login: '/auth/jwt/login',
-      register: '/auth/jwt/register'
+      register: '/auth/jwt/register',
     },
     firebase: {
       login: '/auth/firebase/login',
-      register: '/auth/firebase/register'
+      register: '/auth/firebase/register',
     },
     amplify: {
       confirmRegister: '/auth/amplify/confirm-register',
       forgotPassword: '/auth/amplify/forgot-password',
       login: '/auth/amplify/login',
       register: '/auth/amplify/register',
-      resetPassword: '/auth/amplify/reset-password'
-    }
+      resetPassword: '/auth/amplify/reset-password',
+    },
   },
   authDemo: {
     forgotPassword: {
       classic: '/auth-demo/forgot-password/classic',
-      modern: '/auth-demo/forgot-password/modern'
+      modern: '/auth-demo/forgot-password/modern',
     },
     login: {
       classic: '/auth-demo/login/classic',
-      modern: '/auth-demo/login/modern'
+      modern: '/auth-demo/login/modern',
     },
     register: {
       classic: '/auth-demo/register/classic',
-      modern: '/auth-demo/register/modern'
+      modern: '/auth-demo/register/modern',
     },
     resetPassword: {
       classic: '/auth-demo/reset-password/classic',
-      modern: '/auth-demo/reset-password/modern'
+      modern: '/auth-demo/reset-password/modern',
     },
     verifyCode: {
       classic: '/auth-demo/verify-code/classic',
-      modern: '/auth-demo/verify-code/modern'
-    }
+      modern: '/auth-demo/verify-code/modern',
+    },
   },
   dashboard: {
     index: '/dashboard',
     academy: {
       index: '/dashboard/academy',
-      courseDetails: '/dashboard/academy/courses/:courseId'
+      courseDetails: '/dashboard/academy/courses/:courseId',
     },
     account: '/dashboard/account',
     analytics: '/dashboard/analytics',
@@ -58,7 +61,7 @@ export const paths = {
     blog: {
       index: '/dashboard/blog',
       postDetails: '/dashboard/blog/:postId',
-      postCreate: '/dashboard/blog/create'
+      postCreate: '/dashboard/blog/create',
     },
     calendar: '/dashboard/calendar',
     chat: '/dashboard/chat',
@@ -66,51 +69,51 @@ export const paths = {
     customers: {
       index: '/dashboard/customers',
       details: '/dashboard/customers/:customerId',
-      edit: '/dashboard/customers/:customerId/edit'
+      edit: '/dashboard/customers/:customerId/edit',
     },
     ecommerce: '/dashboard/ecommerce',
     fileManager: '/dashboard/file-manager',
     invoices: {
       index: '/dashboard/invoices',
-      details: '/dashboard/invoices/:orderId'
+      details: '/dashboard/invoices/:orderId',
     },
     jobs: {
       index: '/dashboard/jobs',
       create: '/dashboard/jobs/create',
       companies: {
-        details: '/dashboard/jobs/companies/:companyId'
-      }
+        details: '/dashboard/jobs/companies/:companyId',
+      },
     },
     kanban: '/dashboard/kanban',
     logistics: {
       index: '/dashboard/logistics',
-      fleet: '/dashboard/logistics/fleet'
+      fleet: '/dashboard/logistics/fleet',
     },
     mail: '/dashboard/mail',
     orders: {
       index: '/dashboard/orders',
-      details: '/dashboard/orders/:orderId'
+      details: '/dashboard/orders/:orderId',
     },
     products: {
       index: '/dashboard/products',
-      create: '/dashboard/products/create'
+      create: '/dashboard/products/create',
     },
     social: {
       index: '/dashboard/social',
       profile: '/dashboard/social/profile',
-      feed: '/dashboard/social/feed'
-    }
+      feed: '/dashboard/social/feed',
+    },
   },
   components: {
     index: '/components',
     dataDisplay: {
       detailLists: '/components/data-display/detail-lists',
       tables: '/components/data-display/tables',
-      quickStats: '/components/data-display/quick-stats'
+      quickStats: '/components/data-display/quick-stats',
     },
     lists: {
       groupedLists: '/components/lists/grouped-lists',
-      gridLists: '/components/lists/grid-lists'
+      gridLists: '/components/lists/grid-lists',
     },
     forms: '/components/forms',
     modals: '/components/modals',
@@ -118,19 +121,19 @@ export const paths = {
     buttons: '/components/buttons',
     typography: '/components/typography',
     colors: '/components/colors',
-    inputs: '/components/inputs'
+    inputs: '/components/inputs',
   },
   docs: {
     analytics: {
       configuration: '/docs/analytics-configuration',
       eventTracking: '/docs/analytics-event-tracking',
-      introduction: '/docs/analytics-introduction'
+      introduction: '/docs/analytics-introduction',
     },
     auth: {
       amplify: '/docs/auth-amplify',
       auth0: '/docs/auth-auth0',
       firebase: '/docs/auth-firebase',
-      jwt: '/docs/auth-jwt'
+      jwt: '/docs/auth-jwt',
     },
     changelog: '/docs/changelog',
     contact: '/docs/contact',
@@ -141,7 +144,7 @@ export const paths = {
     guards: {
       auth: '/docs/guards-auth',
       guest: '/docs/guards-guest',
-      roleBased: '/docs/guards-role-based'
+      roleBased: '/docs/guards-role-based',
     },
     furtherSupport: '/docs/further-support',
     internationalization: '/docs/internationalization',
@@ -152,9 +155,9 @@ export const paths = {
     serverCalls: '/docs/server-calls',
     settings: '/docs/settings',
     theming: '/docs/theming',
-    welcome: '/docs/welcome'
+    welcome: '/docs/welcome',
   },
   401: '/401',
   404: '/404',
-  500: '/500'
+  500: '/500',
 };

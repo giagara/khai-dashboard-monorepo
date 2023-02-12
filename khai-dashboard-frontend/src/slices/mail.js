@@ -4,9 +4,9 @@ import { objFromArray } from '../utils/obj-from-array';
 const initialState = {
   emails: {
     byId: {},
-    allIds: []
+    allIds: [],
   },
-  labels: []
+  labels: [],
 };
 
 const reducers = {
@@ -27,13 +27,13 @@ const reducers = {
     if (!state.emails.allIds.includes(email.id)) {
       state.emails.allIds.push(email.id);
     }
-  }
+  },
 };
 
 export const slice = createSlice({
   name: 'mail',
   initialState,
-  reducers
+  reducers,
 });
 
 export const { reducer } = slice;

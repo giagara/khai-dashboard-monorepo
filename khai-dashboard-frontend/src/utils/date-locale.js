@@ -16,7 +16,7 @@ const formatDistanceLocale = {
   aboutXYears: '{{count}}y',
   xYears: '{{count}}y',
   overXYears: '{{count}}y',
-  almostXYears: '{{count}}y'
+  almostXYears: '{{count}}y',
 };
 
 export const customLocale = {
@@ -35,5 +35,5 @@ export const customLocale = {
     }
 
     return result;
-  }
+  },
 };

@@ -5,16 +5,16 @@ const initialState = {
   isLoaded: false,
   columns: {
     byId: {},
-    allIds: []
+    allIds: [],
   },
   tasks: {
     byId: {},
-    allIds: []
+    allIds: [],
   },
   members: {
     byId: {},
-    allIds: []
-  }
+    allIds: [],
+  },
 };
 
 const reducers = {
@@ -81,8 +81,9 @@ const reducers = {
     const sourceColumnId = state.tasks.byId[taskId].columnId;
 
     // Remove task from source column
-    state.columns.byId[sourceColumnId].taskIds =
-      (state.columns.byId[sourceColumnId].taskIds.filter((_taskId) => _taskId !== taskId));
+    state.columns.byId[sourceColumnId].taskIds = state.columns.byId[sourceColumnId].taskIds.filter(
+      (_taskId) => _taskId !== taskId
+    );
 
     // If columnId exists, it means that we have to add the task to the new column
     if (columnId) {
@@ -101,8 +102,7 @@ const reducers = {
 
     delete state.tasks.byId[taskId];
     state.tasks.allIds = state.tasks.allIds.filter((_taskId) => _taskId !== taskId);
-    state.columns.byId[columnId].taskIds =
-      (state.columns.byId[columnId].taskIds.filter((_taskId) => _taskId !== taskId));
+    state.columns.byId[columnId].taskIds = state.columns.byId[columnId].taskIds.filter((_taskId) => _taskId !== taskId);
   },
   addComment(state, action) {
     const { taskId, comment } = action.payload;
@@ -171,15 +171,14 @@ const reducers = {
       return;
     }
 
-    checklist.checkItems =
-      (checklist.checkItems.filter((checkItem) => checkItem.id !== checkItemId));
-  }
+    checklist.checkItems = checklist.checkItems.filter((checkItem) => checkItem.id !== checkItemId);
+  },
 };
 
 export const slice = createSlice({
   name: 'kanban',
   initialState,
-  reducers
+  reducers,
 });
 
 export const { reducer } = slice;

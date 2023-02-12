@@ -4,13 +4,13 @@ import { objFromArray } from '../utils/obj-from-array';
 const initialState = {
   contacts: {
     byId: {},
-    allIds: []
+    allIds: [],
   },
   currentThreadId: undefined,
   threads: {
     byId: {},
-    allIds: []
-  }
+    allIds: [],
+  },
 };
 
 const reducers = {
@@ -55,13 +55,13 @@ const reducers = {
     if (thread) {
       thread.messages.push(message);
     }
-  }
+  },
 };
 
 export const slice = createSlice({
   name: 'chat',
   initialState,
-  reducers
+  reducers,
 });
 
 export const { reducer } = slice;

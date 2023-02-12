@@ -8,5 +8,5 @@ export const rootReducer = combineReducers({
   calendar: calendarReducer,
   chat: chatReducer,
   kanban: kanbanReducer,
-  mail: mailReducer
+  mail: mailReducer,
 });

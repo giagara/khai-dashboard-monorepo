@@ -41,22 +41,22 @@ const initialSettings = {
   navColor: 'evident',
   paletteMode: 'light',
   responsiveFontSizes: true,
-  stretch: false
+  stretch: false,
 };
 
 const initialState = {
   ...initialSettings,
   isInitialized: false,
-  openDrawer: false
+  openDrawer: false,
 };
 
 export const SettingsContext = createContext({
   ...initialState,
-  handleDrawerClose: () => { },
-  handleDrawerOpen: () => { },
-  handleReset: () => { },
-  handleUpdate: () => { },
-  isCustom: false
+  handleDrawerClose: () => {},
+  handleDrawerOpen: () => {},
+  handleReset: () => {},
+  handleUpdate: () => {},
+  isCustom: false,
 });
 
 export const SettingsProvider = (props) => {
@@ -70,7 +70,7 @@ export const SettingsProvider = (props) => {
       setState((prevState) => ({
         ...prevState,
         ...restored,
-        isInitialized: true
+        isInitialized: true,
       }));
     }
   }, []);
@@ -79,7 +79,7 @@ export const SettingsProvider = (props) => {
     deleteSettings();
     setState((prevState) => ({
       ...prevState,
-      ...initialSettings
+      ...initialSettings,
     }));
   }, []);
 
@@ -94,12 +94,12 @@ export const SettingsProvider = (props) => {
         paletteMode: prevState.paletteMode,
         responsiveFontSizes: prevState.responsiveFontSizes,
         stretch: prevState.stretch,
-        ...settings
+        ...settings,
       });
 
       return {
         ...prevState,
-        ...settings
+        ...settings,
       };
     });
   }, []);
@@ -107,14 +107,14 @@ export const SettingsProvider = (props) => {
   const handleDrawerOpen = useCallback(() => {
     setState((prevState) => ({
       ...prevState,
-      openDrawer: true
+      openDrawer: true,
     }));
   }, []);
 
   const handleDrawerClose = useCallback(() => {
     setState((prevState) => ({
       ...prevState,
-      openDrawer: false
+      openDrawer: false,
     }));
   }, []);
 
@@ -127,7 +127,7 @@ export const SettingsProvider = (props) => {
       navColor: state.navColor,
       paletteMode: state.paletteMode,
       responsiveFontSizes: state.responsiveFontSizes,
-      stretch: state.stretch
+      stretch: state.stretch,
     });
   }, [state]);
 
@@ -139,7 +139,7 @@ export const SettingsProvider = (props) => {
         handleDrawerOpen,
         handleReset,
         handleUpdate,
-        isCustom
+        isCustom,
       }}
     >
       {children}
@@ -148,7 +148,7 @@ export const SettingsProvider = (props) => {
 };
 
 SettingsProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export const SettingsConsumer = SettingsContext.Consumer;

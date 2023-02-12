@@ -43,6 +43,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $casts = [
+        'date_add' => 'datetime',
+        'date_upd' => 'datetime',
+    ];
+
     /**
      * Get the password for the user.
      *

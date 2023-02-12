@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  events: []
+  events: [],
 };
 
 const reducers = {
@@ -24,13 +24,13 @@ const reducers = {
   },
   deleteEvent(state, action) {
     state.events = state.events.filter((event) => event.id !== action.payload);
-  }
+  },
 };
 
 export const slice = createSlice({
   name: 'calendar',
   initialState,
-  reducers
+  reducers,
 });
 
 export const { reducer } = slice;

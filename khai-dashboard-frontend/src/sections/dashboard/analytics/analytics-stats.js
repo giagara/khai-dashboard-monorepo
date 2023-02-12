@@ -10,23 +10,23 @@ const useChartOptions = () => {
     chart: {
       background: 'transparent',
       toolbar: {
-        show: false
+        show: false,
       },
       zoom: {
-        enabled: false
-      }
+        enabled: false,
+      },
     },
     colors: [theme.palette.primary.main],
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     fill: {
       gradient: {
         opacityFrom: 0.5,
         opacityTo: 0,
-        stops: [0, 100]
+        stops: [0, 100],
       },
-      type: 'gradient'
+      type: 'gradient',
     },
     grid: {
       show: false,
@@ -34,33 +34,33 @@ const useChartOptions = () => {
         bottom: 0,
         left: 0,
         right: 0,
-        top: 0
-      }
+        top: 0,
+      },
     },
     stroke: {
       curve: 'smooth',
-      width: 3
+      width: 3,
     },
     theme: {
-      mode: theme.palette.mode
+      mode: theme.palette.mode,
     },
     tooltip: {
-      enabled: false
+      enabled: false,
     },
     xaxis: {
       axisBorder: {
-        show: false
+        show: false,
       },
       axisTicks: {
-        show: false
+        show: false,
       },
       labels: {
-        show: false
-      }
+        show: false,
+      },
     },
     yaxis: {
-      show: false
-    }
+      show: false,
+    },
   };
 };
 
@@ -77,36 +77,23 @@ export const AnalyticsStats = (props) => {
         spacing={2}
         sx={{
           px: 3,
-          py: 2
+          py: 2,
         }}
       >
         <div>
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
+          <Typography color="text.secondary" variant="body2">
             {title}
           </Typography>
-          <Typography
-            sx={{ mt: 1 }}
-            variant="h5"
-          >
+          <Typography sx={{ mt: 1 }} variant="h5">
             {value}
           </Typography>
         </div>
         <Box sx={{ width: 200 }}>
-          <Chart
-            height={100}
-            options={chartOptions}
-            series={chartSeries}
-            type="area"
-          />
+          <Chart height={100} options={chartOptions} series={chartSeries} type="area" />
         </Box>
       </Stack>
       <Divider />
-      <CardActions>
-        {action}
-      </CardActions>
+      <CardActions>{action}</CardActions>
     </Card>
   );
 };
@@ -115,5 +102,5 @@ AnalyticsStats.propTypes = {
   action: PropTypes.any.isRequired,
   chartSeries: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
 };

@@ -14,80 +14,51 @@ import {
   TableHead,
   TableRow,
   Tooltip,
-  Typography
+  Typography,
 } from '@mui/material';
 import { Scrollbar } from '../../../components/scrollbar';
+import { SeverityPill } from '../../../components/severity-pill';
 
-export const AnalyticsMostVisited = (props) => {
-  const { pages } = props;
+export const ApplicationsList = (props) => {
+  const { applications } = props;
 
   return (
     <Card>
-      <CardHeader
-        title="Most Visited Pages"
-        action={(
-          <Tooltip title="Refresh rate is 24h">
-            <SvgIcon color="action">
-              <InfoCircleIcon />
-            </SvgIcon>
-          </Tooltip>
-        )}
-      />
+      <CardHeader title="Elenco applicazioni" />
       <Scrollbar>
         <Table sx={{ minWidth: 600 }}>
           <TableHead>
             <TableRow>
-              <TableCell>
-                Page Name
-              </TableCell>
-              <TableCell>
-                Visitors
-              </TableCell>
-              <TableCell>
-                Unique page visits
-              </TableCell>
-              <TableCell>
-                Bounce rate
-              </TableCell>
+              <TableCell></TableCell>
+              <TableCell>Nome</TableCell>
+              <TableCell>Api key</TableCell>
+              <TableCell>Tipo</TableCell>
+              <TableCell>Tot users</TableCell>
+              <TableCell>Attiva</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {pages.map((page) => {
-              const visitors = numeral(page.visitors).format('0,0');
-              const uniqueVisitors = numeral(page.uniqueVisits).format('0,0');
-
+            {applications.map((application) => {
               return (
-                <TableRow
-                  key={page.url}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
+                <TableRow key={application.apikey} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                   <TableCell>
-                    <Link
-                      color="text.primary"
-                      href="#"
-                    >
-                      <Stack
-                        alignItems="center"
-                        direction="row"
-                        spacing={2}
-                      >
+                    <Link color="text.primary" href="#">
+                      <Stack alignItems="center" direction="row" spacing={2}>
                         <SvgIcon fontSize="small">
                           <LinkExternal01Icon />
                         </SvgIcon>
-                        <Typography variant="body2">
-                          {page.url}
-                        </Typography>
+                        <Typography variant="body2">{application.url}</Typography>
                       </Stack>
                     </Link>
                   </TableCell>
+                  <TableCell>{application.name}</TableCell>
+                  <TableCell>{application.apikey}</TableCell>
+                  <TableCell>{application.tipo}</TableCell>
+                  <TableCell>{application.users_count}</TableCell>
                   <TableCell>
-                    {visitors}
-                  </TableCell>
-                  <TableCell>
-                    {uniqueVisitors}
-                  </TableCell>
-                  <TableCell>
-                    {page.bounceRate}%
+                    <SeverityPill color={application.active ? 'success' : 'danger'}>
+                      {application.active ? 'YES' : 'NO'}
+                    </SeverityPill>
                   </TableCell>
                 </TableRow>
               );
@@ -99,6 +70,6 @@ export const AnalyticsMostVisited = (props) => {
   );
 };
 
-AnalyticsMostVisited.propTypes = {
-  pages: PropTypes.array.isRequired
+ApplicationsList.propTypes = {
+  pages: PropTypes.array.isRequired,
 };

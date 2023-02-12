@@ -18,22 +18,12 @@ export const Layout = withAuthGuard((props) => {
   const sections = useTranslatedSections();
 
   if (settings.layout === 'horizontal') {
-    return (
-      <HorizontalLayout
-        sections={sections}
-        navColor={settings.navColor}
-        {...props} />
-    );
+    return <HorizontalLayout sections={sections} navColor={settings.navColor} {...props} />;
   }
 
-  return (
-    <VerticalLayout
-      sections={sections}
-      navColor={settings.navColor}
-      {...props} />
-  );
+  return <VerticalLayout sections={sections} navColor={settings.navColor} {...props} />;
 });
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };

@@ -19,11 +19,13 @@ const useMobileNav = () => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
+  useEffect(
+    () => {
       handlePathnameChange();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [pathname]);
+    [pathname]
+  );
 
   const handleOpen = useCallback(() => {
     setIsOpen(true);
@@ -36,7 +38,7 @@ const useMobileNav = () => {
   return {
     isOpen,
     handleOpen,
-    handleClose
+    handleClose,
   };
 };
 
@@ -45,15 +47,15 @@ const VerticalLayoutRoot = styled('div')(({ theme }) => ({
   flex: '1 1 auto',
   maxWidth: '100%',
   [theme.breakpoints.up('lg')]: {
-    paddingLeft: SIDE_NAV_WIDTH
-  }
+    paddingLeft: SIDE_NAV_WIDTH,
+  },
 }));
 
 const VerticalLayoutContainer = styled('div')({
   display: 'flex',
   flex: '1 1 auto',
   flexDirection: 'column',
-  width: '100%'
+  width: '100%',
 });
 
 export const VerticalLayout = (props) => {
@@ -64,29 +66,17 @@ export const VerticalLayout = (props) => {
   return (
     <>
       <TopNav onMobileNavOpen={mobileNav.handleOpen} />
-      {lgUp && (
-        <SideNav
-          color={navColor}
-          sections={sections}
-        />
-      )}
+      {lgUp && <SideNav color={navColor} sections={sections} />}
       {!lgUp && (
-        <MobileNav
-          color={navColor}
-          onClose={mobileNav.handleClose}
-          open={mobileNav.isOpen}
-          sections={sections}
-        />
+        <MobileNav color={navColor} onClose={mobileNav.handleClose} open={mobileNav.isOpen} sections={sections} />
       )}
       <VerticalLayoutRoot>
-        <VerticalLayoutContainer>
-          {children}
-        </VerticalLayoutContainer>
+        <VerticalLayoutContainer>{children}</VerticalLayoutContainer>
       </VerticalLayoutRoot>
     </>
   );
 };
 
 VerticalLayout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };

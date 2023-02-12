@@ -74,7 +74,7 @@ export const AuthProvider = (props) => {
       const user = localStorage.getItem(STORAGE_KEY);
 
       if (user) {
-        //const user = await authApi.me({ accessToken });
+        const user = await authApi.me();
 
         dispatch({
           type: ActionType.INITIALIZE,

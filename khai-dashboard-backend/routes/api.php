@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,8 +42,21 @@ Route::prefix('v1')->group(function () {
                     ->middleware('auth')
                     ->name('logout');
 
-    Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-        return $request->user();
+
+    /** PRIVATE ROUTES */
+    Route::middleware('auth:sanctum')->group(function () {
+
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
+
+        Route::prefix('dashboard')->group(function () {
+
+            Route::get('applications', [DashboardController::class, 'applications'])->name('applications');
+            Route::get('stats', [DashboardController::class, 'stats'])->name('stats');
+
+        });
+
     });
 
 });

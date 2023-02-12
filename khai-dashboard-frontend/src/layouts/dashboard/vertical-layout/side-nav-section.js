@@ -2,13 +2,17 @@ import PropTypes from 'prop-types';
 import { Box, Stack } from '@mui/material';
 import { SideNavItem } from './side-nav-item';
 
-const renderItems = ({ depth = 0, items, pathname }) => items.reduce((acc,
-  item) => reduceChildRoutes({
-  acc,
-  depth,
-  item,
-  pathname
-}), []);
+const renderItems = ({ depth = 0, items, pathname }) =>
+  items.reduce(
+    (acc, item) =>
+      reduceChildRoutes({
+        acc,
+        depth,
+        item,
+        pathname,
+      }),
+    []
+  );
 
 const reduceChildRoutes = ({ acc, depth, item, pathname }) => {
   const checkPath = !!(item.path && pathname);
@@ -34,13 +38,13 @@ const reduceChildRoutes = ({ acc, depth, item, pathname }) => {
           sx={{
             listStyle: 'none',
             m: 0,
-            p: 0
+            p: 0,
           }}
         >
           {renderItems({
             depth: depth + 1,
             items: item.items,
-            pathname
+            pathname,
           })}
         </Stack>
       </SideNavItem>
@@ -73,9 +77,10 @@ export const SideNavSection = (props) => {
       sx={{
         listStyle: 'none',
         m: 0,
-        p: 0
+        p: 0,
       }}
-      {...other}>
+      {...other}
+    >
       {subheader && (
         <Box
           component="li"
@@ -86,7 +91,7 @@ export const SideNavSection = (props) => {
             lineHeight: 1.66,
             mb: 1,
             ml: 1,
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
           }}
         >
           {subheader}
@@ -100,5 +105,5 @@ export const SideNavSection = (props) => {
 SideNavSection.propTypes = {
   items: PropTypes.array,
   pathname: PropTypes.string,
-  subheader: PropTypes.string
+  subheader: PropTypes.string,
 };

@@ -10,14 +10,15 @@ export const PricingPlan = (props) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        ...sx
+        ...sx,
       }}
-      {...other}>
+      {...other}
+    >
       <Box sx={{ p: 3 }}>
         <Box
           sx={{
             height: 52,
-            width: 52
+            width: 52,
           }}
         >
           {icon}
@@ -31,24 +32,17 @@ export const PricingPlan = (props) => {
             color="text.secondary"
             sx={{
               alignSelf: 'flex-end',
-              ml: 1
+              ml: 1,
             }}
             variant="subtitle2"
           >
             /mo
           </Typography>
         </Box>
-        <Typography
-          sx={{ mt: 2 }}
-          variant="h6"
-        >
+        <Typography sx={{ mt: 2 }} variant="h6">
           {name}
         </Typography>
-        <Typography
-          color="text.secondary"
-          sx={{ mt: 2 }}
-          variant="body2"
-        >
+        <Typography color="text.secondary" sx={{ mt: 2 }} variant="body2">
           {description}
         </Typography>
       </Box>
@@ -58,13 +52,10 @@ export const PricingPlan = (props) => {
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
-          p: 3
+          p: 3,
         }}
       >
-        <Stack
-          spacing={2}
-          sx={{ flexGrow: 1 }}
-        >
+        <Stack spacing={2} sx={{ flexGrow: 1 }}>
           {features.map((feature) => (
             <Stack
               alignItems="center"
@@ -73,16 +64,13 @@ export const PricingPlan = (props) => {
               key={feature}
               sx={{
                 alignItems: 'center',
-                display: 'flex'
+                display: 'flex',
               }}
             >
               <SvgIcon color="success">
                 <CheckIcon />
               </SvgIcon>
-              <Typography
-                sx={{ fontWeight: 500 }}
-                variant="body2"
-              >
+              <Typography sx={{ fontWeight: 500 }} variant="body2">
                 {feature}
               </Typography>
             </Stack>
@@ -92,13 +80,10 @@ export const PricingPlan = (props) => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            mt: 6
+            mt: 6,
           }}
         >
-          <Button
-            fullWidth
-            variant={popular ? 'contained' : 'outlined'}
-          >
+          <Button fullWidth variant={popular ? 'contained' : 'outlined'}>
             {cta}
           </Button>
         </Box>
@@ -116,5 +101,5 @@ PricingPlan.propTypes = {
   name: propTypes.string.isRequired,
   popular: propTypes.bool,
   price: propTypes.string.isRequired,
-  sx: propTypes.object
+  sx: propTypes.object,
 };

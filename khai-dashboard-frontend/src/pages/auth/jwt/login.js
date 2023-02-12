@@ -13,7 +13,7 @@ import { useAuth } from '../../../hooks/use-auth';
 const initialValues = {
   username: '',
   password: '',
-  submit: null
+  submit: null,
 };
 
 const useParams = () => {
@@ -26,15 +26,11 @@ const useParams = () => {
 };
 
 const validationSchema = Yup.object({
-  username: Yup
-    .string()
+  username: Yup.string()
     //.email('Must be a valid email')
     .max(255)
     .required('Username is required'),
-  password: Yup
-    .string()
-    .max(255)
-    .required('Password is required')
+  password: Yup.string().max(255).required('Password is required'),
 });
 
 const Page = () => {
@@ -46,9 +42,7 @@ const Page = () => {
     initialValues,
     validationSchema,
     onSubmit: async (values, helpers) => {
-
       try {
-        
         await signIn(values.username, values.password);
 
         if (isMounted()) {
@@ -63,28 +57,16 @@ const Page = () => {
           helpers.setSubmitting(false);
         }
       }
-
-     }
+    },
   });
 
   return (
     <div>
-      <Box sx={{ mb: 4 }}>
-        
-      </Box>
-      <Stack
-        sx={{ mb: 4 }}
-        spacing={1}
-      >
-        <Typography variant="h5">
-          Log in
-        </Typography>
-
+      <Box sx={{ mb: 4 }}></Box>
+      <Stack sx={{ mb: 4 }} spacing={1}>
+        <Typography variant="h5">Log in</Typography>
       </Stack>
-      <form
-        noValidate
-        onSubmit={formik.handleSubmit}
-      >
+      <form noValidate onSubmit={formik.handleSubmit}>
         <Stack spacing={3}>
           <TextField
             autoFocus
@@ -110,21 +92,11 @@ const Page = () => {
             value={formik.values.password}
           />
         </Stack>
-        <Button
-          fullWidth
-          sx={{ mt: 3 }}
-          size="large"
-          type="submit"
-          variant="contained"
-        >
+        <Button fullWidth sx={{ mt: 3 }} size="large" type="submit" variant="contained">
           Log in
         </Button>
         <Box sx={{ mt: 3 }}>
-          <Link
-            href="#"
-            underline="hover"
-            variant="subtitle2"
-          >
+          <Link href="#" underline="hover" variant="subtitle2">
             Forgot password?
           </Link>
         </Box>
@@ -133,10 +105,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => (
-  <AuthLayout>
-    {page}
-  </AuthLayout>
-);
+Page.getLayout = (page) => <AuthLayout>{page}</AuthLayout>;
 
 export default Page;

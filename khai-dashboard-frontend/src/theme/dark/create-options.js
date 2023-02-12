@@ -11,6 +11,6 @@ export const createOptions = (config) => {
   return {
     components,
     palette,
-    shadows
+    shadows,
   };
 };

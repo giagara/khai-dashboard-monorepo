@@ -8,7 +8,7 @@ class AuthApi {
   async signIn(request) {
     const { username, password } = request;
 
-    await wait(100);
+    //await wait(100);
 
     return new Promise((resolve, reject) => {
       try {
@@ -19,7 +19,6 @@ class AuthApi {
             password: password,
           })
           .then((response) => {
-            debugger;
             const user = response.data;
 
             if (!user) {
@@ -77,24 +76,20 @@ class AuthApi {
     });
   }
 
-  me(request) {
-    debugger;
-    const { user } = request;
+  me() {
+    //const { user } = request;
 
     return new Promise((resolve, reject) => {
       try {
-        // Decode access token
-        // const { userId } = decode(accessToken);
-
-        // // Find the user
-        // const user = users.find((user) => user.id === userId);
-
-        // if (!user) {
-        //   reject(new Error('Invalid authorization token'));
-        //   return;
-        // }
-
-        resolve(user);
+        axios
+          .get('user')
+          .then((response) => {
+            resolve(response.data);
+            return;
+          })
+          .catch((err) => {
+            reject();
+          });
       } catch (err) {
         console.error('[Auth Api]: ', err);
         reject(new Error('Internal server error'));

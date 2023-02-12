@@ -35,7 +35,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[700],
             '--nav-item-chevron-color': theme.palette.neutral[700],
-            '--nav-scrollbar-color': theme.palette.neutral[400]
+            '--nav-scrollbar-color': theme.palette.neutral[400],
           };
         } else {
           return {
@@ -53,7 +53,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[400],
             '--nav-item-chevron-color': theme.palette.neutral[400],
-            '--nav-scrollbar-color': theme.palette.neutral[900]
+            '--nav-scrollbar-color': theme.palette.neutral[900],
           };
         }
 
@@ -74,7 +74,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[700],
             '--nav-item-chevron-color': theme.palette.neutral[700],
-            '--nav-scrollbar-color': theme.palette.neutral[400]
+            '--nav-scrollbar-color': theme.palette.neutral[400],
           };
         } else {
           return {
@@ -92,7 +92,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[400],
             '--nav-item-chevron-color': theme.palette.neutral[400],
-            '--nav-scrollbar-color': theme.palette.neutral[900]
+            '--nav-scrollbar-color': theme.palette.neutral[900],
           };
         }
 
@@ -113,7 +113,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[500],
             '--nav-item-chevron-color': theme.palette.neutral[600],
-            '--nav-scrollbar-color': theme.palette.neutral[400]
+            '--nav-scrollbar-color': theme.palette.neutral[400],
           };
         } else {
           return {
@@ -131,7 +131,7 @@ const useCssVars = (color) => {
             '--nav-item-icon-active-color': theme.palette.primary.main,
             '--nav-item-icon-disabled-color': theme.palette.neutral[500],
             '--nav-item-chevron-color': theme.palette.neutral[600],
-            '--nav-scrollbar-color': theme.palette.neutral[400]
+            '--nav-scrollbar-color': theme.palette.neutral[400],
           };
         }
 
@@ -158,8 +158,8 @@ export const SideNav = (props) => {
           borderRightStyle: 'solid',
           borderRightWidth: 1,
           color: 'var(--nav-color)',
-          width: SIDE_NAV_WIDTH
-        }
+          width: SIDE_NAV_WIDTH,
+        },
       }}
       variant="permanent"
     >
@@ -167,20 +167,15 @@ export const SideNav = (props) => {
         sx={{
           height: '100%',
           '& .simplebar-content': {
-            height: '100%'
+            height: '100%',
           },
           '& .simplebar-scrollbar:before': {
-            background: 'var(--nav-scrollbar-color)'
-          }
+            background: 'var(--nav-scrollbar-color)',
+          },
         }}
       >
         <Stack sx={{ height: '100%' }}>
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-            sx={{ p: 3 }}
-          >
+          <Stack alignItems="center" direction="row" spacing={2} sx={{ p: 3 }}>
             <Box
               component={NextLink}
               href={paths.index}
@@ -192,7 +187,7 @@ export const SideNav = (props) => {
                 display: 'flex',
                 height: 40,
                 p: '4px',
-                width: 40
+                width: 40,
               }}
             >
               <Logo />
@@ -204,38 +199,27 @@ export const SideNav = (props) => {
             spacing={2}
             sx={{
               flexGrow: 1,
-              px: 2
+              px: 2,
             }}
           >
             {sections.map((section, index) => (
-              <SideNavSection
-                items={section.items}
-                key={index}
-                pathname={pathname}
-                subheader={section.subheader}
-              />
+              <SideNavSection items={section.items} key={index} pathname={pathname} subheader={section.subheader} />
             ))}
           </Stack>
           <Box sx={{ p: 3 }}>
-            <Typography variant="subtitle1">
-              Need help?
-            </Typography>
-            <Typography
-              color="neutral.400"
-              sx={{ mb: 2 }}
-              variant="body2"
-            >
+            <Typography variant="subtitle1">Need help?</Typography>
+            <Typography color="neutral.400" sx={{ mb: 2 }} variant="body2">
               Please check our docs.
             </Typography>
             <Button
               component={NextLink}
               fullWidth
               href={paths.docs.welcome}
-              startIcon={(
+              startIcon={
                 <SvgIcon>
                   <File04Icon />
                 </SvgIcon>
-              )}
+              }
               variant="contained"
             >
               Documentation
@@ -249,5 +233,5 @@ export const SideNav = (props) => {
 
 SideNav.propTypes = {
   color: PropTypes.oneOf(['blend-in', 'discreet', 'evident']),
-  sections: PropTypes.array
+  sections: PropTypes.array,
 };

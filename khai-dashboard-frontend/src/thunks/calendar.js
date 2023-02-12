@@ -29,5 +29,5 @@ export const thunks = {
   createEvent,
   deleteEvent,
   getEvents,
-  updateEvent
+  updateEvent,
 };
