@@ -50,13 +50,13 @@ export const paths = {
     },
   },
   dashboard: {
-    index: '/dashboard',
+    index: '/dashboard/no',
     academy: {
       index: '/dashboard/academy',
       courseDetails: '/dashboard/academy/courses/:courseId',
     },
     account: '/dashboard/account',
-    analytics: '/dashboard/analytics',
+    analytics: '/dashboard',
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',

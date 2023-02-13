@@ -77,7 +77,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Login | Devias Kit PRO</title>
+        <title>Login | KHAI ADMIN</title>
       </Head>
       <div>
         <Card elevation={16}>

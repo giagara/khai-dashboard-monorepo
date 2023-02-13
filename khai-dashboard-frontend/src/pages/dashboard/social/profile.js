@@ -143,7 +143,7 @@ export const SocialProfile = () => {
     <>
       <Head>
         <title>
-          Dashboard: Social Profile | Devias Kit PRO
+          Dashboard: Social Profile | KHAI ADMIN
         </title>
       </Head>
       <Box

@@ -59,7 +59,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Blog: Post List | Devias Kit PRO
+          Blog: Post List | KHAI ADMIN
         </title>
       </Head>
       <Box

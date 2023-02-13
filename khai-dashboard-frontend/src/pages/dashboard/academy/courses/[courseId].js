@@ -83,7 +83,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Academy Course | Devias Kit PRO
+          Dashboard: Academy Course | KHAI ADMIN
         </title>
       </Head>
       <Box

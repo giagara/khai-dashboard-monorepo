@@ -55,7 +55,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Detail Lists | Devias Kit PRO
+          Components: Detail Lists | KHAI ADMIN
         </title>
       </Head>
       <Box

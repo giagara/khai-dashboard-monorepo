@@ -89,7 +89,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Login | Devias Kit PRO
+          Login | KHAI ADMIN
         </title>
       </Head>
       <div>

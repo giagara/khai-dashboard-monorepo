@@ -144,7 +144,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Kanban | Devias Kit PRO
+          Dashboard: Kanban | KHAI ADMIN
         </title>
       </Head>
       <Box

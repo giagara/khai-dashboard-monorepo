@@ -188,7 +188,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: File Manager | Devias Kit PRO
+          Dashboard: File Manager | KHAI ADMIN
         </title>
       </Head>
       <Box

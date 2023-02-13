@@ -99,7 +99,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Reset Password | Devias Kit PRO
+          Reset Password | KHAI ADMIN
         </title>
       </Head>
       <div>

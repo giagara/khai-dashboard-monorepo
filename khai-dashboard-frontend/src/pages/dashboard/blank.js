@@ -14,7 +14,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Blank | Devias Kit PRO
+          Dashboard: Blank | KHAI ADMIN
         </title>
       </Head>
       <Box

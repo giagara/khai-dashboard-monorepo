@@ -13,7 +13,7 @@ export const Page = () => {
     <>
       <Head>
         <title>
-          Components: Typography | Devias Kit PRO
+          Components: Typography | KHAI ADMIN
         </title>
       </Head>
       <Box

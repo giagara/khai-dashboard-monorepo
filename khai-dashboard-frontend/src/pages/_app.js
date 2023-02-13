@@ -43,13 +43,8 @@ const App = (props) => {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>
-          Devias Kit PRO
-        </title>
-        <meta
-          name="viewport"
-          content="initial-scale=1, width=device-width"
-        />
+        <title>KHAI ADMIN</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ReduxProvider store={store}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -69,7 +64,7 @@ const App = (props) => {
                         contrast: settings.contrast,
                         direction: settings.direction,
                         paletteMode: settings.paletteMode,
-                        responsiveFontSizes: settings.responsiveFontSizes
+                        responsiveFontSizes: settings.responsiveFontSizes,
                       });
 
                       // Prevent guards from redirecting
@@ -78,25 +73,17 @@ const App = (props) => {
                       return (
                         <ThemeProvider theme={theme}>
                           <Head>
-                            <meta
-                              name="color-scheme"
-                              content={settings.paletteMode}
-                            />
-                            <meta
-                              name="theme-color"
-                              content={theme.palette.neutral[900]}
-                            />
+                            <meta name="color-scheme" content={settings.paletteMode} />
+                            <meta name="theme-color" content={theme.palette.neutral[900]} />
                           </Head>
                           <RTL direction={settings.direction}>
                             <CssBaseline />
-                            {showSlashScreen
-                              ? <SplashScreen />
-                              : (
-                                <>
-                                  {getLayout(
-                                    <Component {...pageProps} />
-                                  )}
-                                  <SettingsButton onClick={settings.handleDrawerOpen} />
+                            {showSlashScreen ? (
+                              <SplashScreen />
+                            ) : (
+                              <>
+                                {getLayout(<Component {...pageProps} />)}
+                                {/* <SettingsButton onClick={settings.handleDrawerOpen} />
                                   <SettingsDrawer
                                     canReset={settings.isCustom}
                                     onClose={settings.handleDrawerClose}
@@ -113,9 +100,9 @@ const App = (props) => {
                                       layout: settings.layout,
                                       navColor: settings.navColor
                                     }}
-                                  />
-                                </>
-                              )}
+                                  /> */}
+                              </>
+                            )}
                             <Toaster />
                           </RTL>
                         </ThemeProvider>

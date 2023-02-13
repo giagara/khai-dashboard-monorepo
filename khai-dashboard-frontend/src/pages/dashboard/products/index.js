@@ -102,7 +102,7 @@ const ProductList = () => {
     <>
       <Head>
         <title>
-          Dashboard: Product List | Devias Kit PRO
+          Dashboard: Product List | KHAI ADMIN
         </title>
       </Head>
       <Box

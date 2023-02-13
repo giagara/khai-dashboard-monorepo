@@ -20,7 +20,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Contact | Devias Kit PRO
+          Contact | KHAI ADMIN
         </title>
       </Head>
       <Box

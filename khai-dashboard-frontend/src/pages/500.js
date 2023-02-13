@@ -15,7 +15,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Error: Server Error | Devias Kit PRO
+          Error: Server Error | KHAI ADMIN
         </title>
       </Head>
       <Box

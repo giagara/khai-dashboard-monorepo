@@ -52,7 +52,7 @@ const Page = (props) => {
     <>
       <Head>
         <title>
-          {`Docs: ${article.title} | Devias Kit PRO`}
+          {`Docs: ${article.title} | KHAI ADMIN`}
         </title>
       </Head>
       <Container

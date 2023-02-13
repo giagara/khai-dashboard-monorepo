@@ -159,7 +159,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Mail | Devias Kit PRO
+          Dashboard: Mail | KHAI ADMIN
         </title>
       </Head>
       <Divider />

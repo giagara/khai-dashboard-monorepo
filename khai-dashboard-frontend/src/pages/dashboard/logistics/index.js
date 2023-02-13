@@ -29,7 +29,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Logistics Dashboard | Devias Kit PRO
+          Dashboard: Logistics Dashboard | KHAI ADMIN
         </title>
       </Head>
       <Box

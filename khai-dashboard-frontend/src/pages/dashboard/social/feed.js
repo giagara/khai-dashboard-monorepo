@@ -42,7 +42,7 @@ const SocialFeed = () => {
     <>
       <Head>
         <title>
-          Dashboard: Social Feed | Devias Kit PRO
+          Dashboard: Social Feed | KHAI ADMIN
         </title>
       </Head>
       <Box

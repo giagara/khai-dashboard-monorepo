@@ -80,7 +80,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Charts | Devias Kit PRO
+          Components: Charts | KHAI ADMIN
         </title>
       </Head>
       <Box

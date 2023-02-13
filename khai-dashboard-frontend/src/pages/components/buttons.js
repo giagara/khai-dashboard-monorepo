@@ -30,7 +30,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Buttons | Devias Kit PRO
+          Components: Buttons | KHAI ADMIN
         </title>
       </Head>
       <Box

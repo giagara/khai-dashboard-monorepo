@@ -95,7 +95,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Forms | Devias Kit PRO
+          Components: Forms | KHAI ADMIN
         </title>
       </Head>
       <Box

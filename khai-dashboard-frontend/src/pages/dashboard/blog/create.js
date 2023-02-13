@@ -45,7 +45,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Blog: Post Create | Devias Kit PRO
+          Blog: Post Create | KHAI ADMIN
         </title>
       </Head>
       <Box

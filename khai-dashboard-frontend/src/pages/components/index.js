@@ -131,7 +131,7 @@ const Page = () => {
     <Box>
       <Head>
         <title>
-          Components | Devias Kit PRO
+          Components | KHAI ADMIN
         </title>
       </Head>
       <Box

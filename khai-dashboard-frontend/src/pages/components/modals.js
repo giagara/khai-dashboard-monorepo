@@ -65,7 +65,7 @@ export const Page = () => {
     <>
       <Head>
         <title>
-          Components: Modals | Devias Kit PRO
+          Components: Modals | KHAI ADMIN
         </title>
       </Head>
       <Box

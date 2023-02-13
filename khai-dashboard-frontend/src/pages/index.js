@@ -14,7 +14,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Devias Kit PRO
+          KHAI ADMIN
         </title>
       </Head>
       <main>

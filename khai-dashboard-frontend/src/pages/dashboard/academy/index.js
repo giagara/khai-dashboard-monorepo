@@ -56,7 +56,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Academy Dashboard | Devias Kit PRO
+          Dashboard: Academy Dashboard | KHAI ADMIN
         </title>
       </Head>
       <Box

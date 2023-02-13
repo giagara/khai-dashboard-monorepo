@@ -70,7 +70,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Tables | Devias Kit PRO
+          Components: Tables | KHAI ADMIN
         </title>
       </Head>
       <Box

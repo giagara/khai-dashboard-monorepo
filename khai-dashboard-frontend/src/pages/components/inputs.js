@@ -40,7 +40,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Components: Inputs | Devias Kit PRO
+          Components: Inputs | KHAI ADMIN
         </title>
       </Head>
       <Box

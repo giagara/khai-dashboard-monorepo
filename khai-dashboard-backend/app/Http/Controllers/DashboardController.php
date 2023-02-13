@@ -13,7 +13,10 @@ class DashboardController extends Controller
 {
     public function applications(){
 
-        return \response()->json(Application::all());
+        return \response()->json([
+            'list' => Application::all(),
+            'groupped' => Application::groupBy('tipo')->selectRaw('count(*) as total, tipo')->get()
+        ]);
 
     }
 

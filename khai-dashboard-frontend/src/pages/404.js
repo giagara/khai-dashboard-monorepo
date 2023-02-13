@@ -15,7 +15,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Error: Not Found | Devias Kit PRO
+          Error: Not Found | KHAI ADMIN
         </title>
       </Head>
       <Box
