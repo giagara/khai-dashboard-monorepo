@@ -1,8 +1,8 @@
 {
-  "name": "@devias/kit-pro-react",
-  "version": "6.0.0",
-  "author": "Devias",
-  "homepage": "https://devias.io",
+  "name": "@giagara/react-admin-template",
+  "version": "1.0.0",
+  "author": "Garavaglia Giacomo",
+  "homepage": "https://garavagliasoftware.it",
   "private": true,
   "scripts": {
     "dev": "next",

@@ -13,9 +13,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>
-          KHAI ADMIN
-        </title>
+        <title>KHAI ADMIN</title>
       </Head>
       <main>
         <HomeHero />
@@ -28,10 +26,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => (
-  <MarketingLayout>
-    {page}
-  </MarketingLayout>
-);
+Page.getLayout = (page) => <MarketingLayout>{page}</MarketingLayout>;
 
 export default Page;

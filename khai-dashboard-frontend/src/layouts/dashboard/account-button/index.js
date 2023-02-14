@@ -31,13 +31,13 @@ export const AccountButton = () => {
           borderColor: 'divider',
           height: 40,
           width: 40,
-          borderRadius: '50%'
+          borderRadius: '50%',
         }}
       >
         <Avatar
           sx={{
             height: 32,
-            width: 32
+            width: 32,
           }}
           src={user.avatar}
         >
@@ -46,11 +46,7 @@ export const AccountButton = () => {
           </SvgIcon>
         </Avatar>
       </Box>
-      <AccountPopover
-        anchorEl={anchorRef.current}
-        onClose={handlePopoverClose}
-        open={openPopover}
-      />
+      <AccountPopover anchorEl={anchorRef.current} onClose={handlePopoverClose} open={openPopover} />
     </>
   );
 };

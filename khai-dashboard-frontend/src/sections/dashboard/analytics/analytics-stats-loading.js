@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import { Box, Card, CardActions, Divider, Stack, Typography } from '@mui/material';
 import ContentLoader from 'react-content-loader';
 
-export const AnalyticsStatsLoading = (props) => {
-  const { action, chartSeries, value, title } = props;
-
+export const AnalyticsStatsLoading = () => {
   return (
     <Card>
       <Stack
@@ -32,14 +30,9 @@ export const AnalyticsStatsLoading = (props) => {
         </Box>
       </Stack>
       <Divider />
-      <CardActions>{action}</CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 };
 
-AnalyticsStatsLoading.propTypes = {
-  action: PropTypes.any.isRequired,
-  chartSeries: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-};
+AnalyticsStatsLoading.propTypes = {};

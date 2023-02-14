@@ -15,7 +15,7 @@ import {
   ListItemText,
   Popover,
   SvgIcon,
-  Typography
+  Typography,
 } from '@mui/material';
 import { useAuth } from '../../../hooks/use-auth';
 import { paths } from '../../../paths';
@@ -25,6 +25,8 @@ export const AccountPopover = (props) => {
   const { anchorEl, onClose, open, ...other } = props;
   const router = useRouter();
   const auth = useAuth();
+
+  const { user } = JSON.parse(localStorage.getItem('user'));
 
   const handleLogout = useCallback(async () => {
     try {
@@ -68,33 +70,32 @@ export const AccountPopover = (props) => {
       anchorEl={anchorEl}
       anchorOrigin={{
         horizontal: 'center',
-        vertical: 'bottom'
+        vertical: 'bottom',
       }}
       disableScrollLock
       onClose={onClose}
       open={!!open}
       PaperProps={{ sx: { width: 200 } }}
-      {...other}>
+      {...other}
+    >
       <Box sx={{ p: 2 }}>
         <Typography variant="body1">
-          Anika Visser
+          {user.firstname} {user.lastname}
         </Typography>
-        <Typography
-          color="text.secondary"
-          variant="body2"
-        >
-          demo@devias.io
+        <Typography color="text.secondary"
+variant="body2">
+          {user.email}
         </Typography>
       </Box>
       <Divider />
-      <Box sx={{ p: 1 }}>
+      {/* <Box sx={{ p: 1 }}>
         <ListItemButton
           component={NextLink}
           href={paths.dashboard.social.profile}
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -102,13 +103,7 @@ export const AccountPopover = (props) => {
               <User03Icon />
             </SvgIcon>
           </ListItemIcon>
-          <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Profile
-              </Typography>
-            )}
-          />
+          <ListItemText primary={<Typography variant="body1">Profile</Typography>} />
         </ListItemButton>
         <ListItemButton
           component={NextLink}
@@ -116,7 +111,7 @@ export const AccountPopover = (props) => {
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -124,13 +119,7 @@ export const AccountPopover = (props) => {
               <Settings04Icon />
             </SvgIcon>
           </ListItemIcon>
-          <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Settings
-              </Typography>
-            )}
-          />
+          <ListItemText primary={<Typography variant="body1">Settings</Typography>} />
         </ListItemButton>
         <ListItemButton
           component={NextLink}
@@ -138,7 +127,7 @@ export const AccountPopover = (props) => {
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -146,28 +135,20 @@ export const AccountPopover = (props) => {
               <CreditCard01Icon />
             </SvgIcon>
           </ListItemIcon>
-          <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Billing
-              </Typography>
-            )}
-          />
+          <ListItemText primary={<Typography variant="body1">Billing</Typography>} />
         </ListItemButton>
-      </Box>
+      </Box> */}
       <Divider sx={{ my: '0 !important' }} />
       <Box
         sx={{
           display: 'flex',
           p: 1,
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
-        <Button
-          color="inherit"
-          onClick={handleLogout}
-          size="small"
-        >
+        <Button color="inherit"
+onClick={handleLogout}
+size="small">
           Logout
         </Button>
       </Box>
@@ -178,5 +159,5 @@ export const AccountPopover = (props) => {
 AccountPopover.propTypes = {
   anchorEl: PropTypes.any,
   onClose: PropTypes.func,
-  open: PropTypes.bool
+  open: PropTypes.bool,
 };

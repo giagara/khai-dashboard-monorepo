@@ -23,15 +23,16 @@ export const TopNav = (props) => {
         backgroundColor: (theme) => alpha(theme.palette.background.default, 0.8),
         position: 'sticky',
         left: {
-          lg: `${SIDE_NAV_WIDTH}px`
+          lg: `${SIDE_NAV_WIDTH}px`,
         },
         top: 0,
         width: {
-          lg: `calc(100% - ${SIDE_NAV_WIDTH}px)`
+          lg: `calc(100% - ${SIDE_NAV_WIDTH}px)`,
         },
-        zIndex: (theme) => theme.zIndex.appBar
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
-      {...other}>
+      {...other}
+    >
       <Stack
         alignItems="center"
         direction="row"
@@ -39,31 +40,23 @@ export const TopNav = (props) => {
         spacing={2}
         sx={{
           minHeight: TOP_NAV_HEIGHT,
-          px: 2
+          px: 2,
         }}
       >
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-        >
-          {!lgUp && (
+        <Stack alignItems="center" direction="row" spacing={2}>
+          {/* {!lgUp && (
             <IconButton onClick={onMobileNavOpen}>
               <SvgIcon>
                 <Menu01Icon />
               </SvgIcon>
             </IconButton>
           )}
-          <SearchButton />
+          <SearchButton /> */}
         </Stack>
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-        >
-          <LanguageSwitch />
-          <NotificationsButton />
-          <ContactsButton />
+        <Stack alignItems="center" direction="row" spacing={2}>
+          {/* <LanguageSwitch /> */}
+          {/* <NotificationsButton /> */}
+          {/* <ContactsButton /> */}
           <AccountButton />
         </Stack>
       </Stack>
@@ -72,5 +65,5 @@ export const TopNav = (props) => {
 };
 
 TopNav.propTypes = {
-  onMobileNavOpen: PropTypes.func
+  onMobileNavOpen: PropTypes.func,
 };

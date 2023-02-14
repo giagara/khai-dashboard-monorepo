@@ -22,6 +22,10 @@ Route::prefix('v1')->group(function () {
                         ->middleware('guest')
                         ->name('login');
 
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+                        ->middleware('guest')
+                        ->name('logout');
+
     Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
                     ->middleware('guest')
                     ->name('password.email');

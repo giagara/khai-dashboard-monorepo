@@ -1,35 +1,18 @@
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import numeral from 'numeral';
-import {
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  TablePagination,
-  TableRow,
-  Typography
-} from '@mui/material';
+import { Box, Table, TableBody, TableCell, TablePagination, TableRow, Typography } from '@mui/material';
 import { SeverityPill } from '../../../components/severity-pill';
 
 const statusMap = {
   complete: 'success',
   pending: 'info',
   canceled: 'warning',
-  rejected: 'error'
+  rejected: 'error',
 };
 
 export const OrderListTable = (props) => {
-  const {
-    onOrderSelect,
-    onPageChange,
-    onRowsPerPageChange,
-    orders,
-    ordersCount,
-    page,
-    rowsPerPage,
-    ...other
-  } = props;
+  const { onOrderSelect, onPageChange, onRowsPerPageChange, orders, ordersCount, page, rowsPerPage, ...other } = props;
 
   return (
     <div {...other}>
@@ -42,60 +25,38 @@ export const OrderListTable = (props) => {
             const statusColor = statusMap[order.status] || 'warning';
 
             return (
-              <TableRow
-                hover
-                key={order.id}
-                onClick={() => onOrderSelect?.(order.id)}
-                sx={{ cursor: 'pointer' }}
-              >
+              <TableRow hover key={order.id} onClick={() => onOrderSelect?.(order.id)} sx={{ cursor: 'pointer' }}>
                 <TableCell
                   sx={{
                     alignItems: 'center',
-                    display: 'flex'
+                    display: 'flex',
                   }}
                 >
                   <Box
                     sx={{
-                      backgroundColor: (theme) => theme.palette.mode === 'dark'
-                        ? 'neutral.800'
-                        : 'neutral.200',
+                      backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'neutral.800' : 'neutral.200'),
                       borderRadius: 2,
                       maxWidth: 'fit-content',
                       ml: 3,
-                      p: 1
+                      p: 1,
                     }}
                   >
-                    <Typography
-                      align="center"
-                      variant="subtitle2"
-                    >
+                    <Typography align="center" variant="subtitle2">
                       {createdAtMonth}
                     </Typography>
-                    <Typography
-                      align="center"
-                      variant="h6"
-                    >
+                    <Typography align="center" variant="h6">
                       {createdAtDay}
                     </Typography>
                   </Box>
                   <Box sx={{ ml: 2 }}>
-                    <Typography variant="subtitle2">
-                      {order.number}
-                    </Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
-                      Total of
-                      {' '}
-                      {totalAmount}
+                    <Typography variant="subtitle2">{order.number}</Typography>
+                    <Typography color="text.secondary" variant="body2">
+                      Total of {totalAmount}
                     </Typography>
                   </Box>
                 </TableCell>
                 <TableCell align="right">
-                  <SeverityPill color={statusColor}>
-                    {order.status}
-                  </SeverityPill>
+                  <SeverityPill color={statusColor}>{order.status}</SeverityPill>
                 </TableCell>
               </TableRow>
             );
@@ -122,5 +83,5 @@ OrderListTable.propTypes = {
   orders: PropTypes.array.isRequired,
   ordersCount: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired
+  rowsPerPage: PropTypes.number.isRequired,
 };

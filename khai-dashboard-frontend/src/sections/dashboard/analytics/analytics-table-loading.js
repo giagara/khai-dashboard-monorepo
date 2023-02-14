@@ -1,10 +1,7 @@
-import PropTypes from 'prop-types';
-import { Box, Card, CardActions, Divider, Stack, Typography } from '@mui/material';
+import { Box, Card, CardActions, Divider, Stack } from '@mui/material';
 import ContentLoader from 'react-content-loader';
 
-export const AnalyticsTableLoading = (props) => {
-  const { action, chartSeries, value, title } = props;
-
+export const AnalyticsTableLoading = () => {
   return (
     <Card>
       <Stack
@@ -32,14 +29,9 @@ export const AnalyticsTableLoading = (props) => {
         </Box>
       </Stack>
       <Divider />
-      <CardActions>{action}</CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 };
 
-AnalyticsTableLoading.propTypes = {
-  action: PropTypes.any.isRequired,
-  chartSeries: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-};
+AnalyticsTableLoading.propTypes = {};

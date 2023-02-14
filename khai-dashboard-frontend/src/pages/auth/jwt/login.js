@@ -60,13 +60,20 @@ const Page = () => {
     },
   });
 
+  // useEffect(() => {
+  //   debugger;
+
+  //   }, []);
+
   return (
     <div>
       <Box sx={{ mb: 4 }}></Box>
-      <Stack sx={{ mb: 4 }} spacing={1}>
+      <Stack sx={{ mb: 4 }}
+spacing={1}>
         <Typography variant="h5">Log in</Typography>
       </Stack>
-      <form noValidate onSubmit={formik.handleSubmit}>
+      <form noValidate
+onSubmit={formik.handleSubmit}>
         <Stack spacing={3}>
           <TextField
             autoFocus
@@ -92,11 +99,17 @@ const Page = () => {
             value={formik.values.password}
           />
         </Stack>
-        <Button fullWidth sx={{ mt: 3 }} size="large" type="submit" variant="contained">
+        <Button fullWidth
+sx={{ mt: 3 }}
+size="large"
+type="submit"
+variant="contained">
           Log in
         </Button>
         <Box sx={{ mt: 3 }}>
-          <Link href="#" underline="hover" variant="subtitle2">
+          <Link href="#"
+underline="hover"
+variant="subtitle2">
             Forgot password?
           </Link>
         </Box>

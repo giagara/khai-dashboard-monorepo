@@ -39,6 +39,24 @@ class AuthApi {
     });
   }
 
+  async signOut() {
+    //await wait(100);
+
+    return new Promise((resolve, reject) => {
+      try {
+        // Find the user
+        axios.post('logout').then((response) => {
+          resolve();
+        });
+
+        // Create the access token
+      } catch (err) {
+        console.error('[Auth Api]: ', err);
+        reject(new Error('Internal server error'));
+      }
+    });
+  }
+
   async signUp(request) {
     return;
     const { email, name, password } = request;
