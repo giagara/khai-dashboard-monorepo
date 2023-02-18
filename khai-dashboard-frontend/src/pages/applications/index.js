@@ -2,14 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Head from 'next/head';
 import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
 import { Box, Button, Divider, Stack, SvgIcon, Typography } from '@mui/material';
-import { ordersApi } from '../../api/orders';
+import { applicationApi } from '../../api/applications/application.api';
 import { useMounted } from '../../hooks/use-mounted';
 import { usePageView } from '../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../layouts/dashboard';
-import { OrderDrawer } from '../../sections/dashboard/order/order-drawer';
-import { OrderListContainer } from '../../sections/dashboard/order/order-list-container';
-import { OrderListSearch } from '../../sections/dashboard/order/order-list-search';
-import { OrderListTable } from '../../sections/dashboard/order/order-list-table';
+import { ApplicationDrawer } from './application-drawer';
+import { ApplicationListContainer } from './application-list-container';
+import { ApplicationListSearch } from './application-list-search';
+import { ApplicationListTable } from './application-list-table';
 
 const useSearch = () => {
   const [search, setSearch] = useState({
@@ -18,8 +18,8 @@ const useSearch = () => {
       status: undefined,
     },
     page: 0,
-    rowsPerPage: 5,
-    sortBy: 'createdAt',
+    rowsPerPage: 10,
+    sortBy: 'name',
     sortDir: 'desc',
   });
 
@@ -32,18 +32,18 @@ const useSearch = () => {
 const useOrders = (search) => {
   const isMounted = useMounted();
   const [state, setState] = useState({
-    orders: [],
-    ordersCount: 0,
+    applications: [],
+    applicationCount: 0,
   });
 
-  const getOrders = useCallback(async () => {
+  const getApplications = useCallback(async () => {
     try {
-      const response = await ordersApi.getOrders(search);
+      const response = await applicationApi.getApplications(search);
 
       if (isMounted()) {
         setState({
-          orders: response.data,
-          ordersCount: response.count,
+          applications: response.applications.data,
+          applicationCount: response.total,
         });
       }
     } catch (err) {
@@ -53,7 +53,7 @@ const useOrders = (search) => {
 
   useEffect(
     () => {
-      getOrders();
+      getApplications();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [search]
@@ -65,20 +65,20 @@ const useOrders = (search) => {
 const Page = () => {
   const rootRef = useRef(null);
   const { search, updateSearch } = useSearch();
-  const { orders, ordersCount } = useOrders(search);
+  const { applications, applicationCount } = useOrders(search);
   const [drawer, setDrawer] = useState({
     isOpen: false,
     data: undefined,
   });
-  const currentOrder = useMemo(() => {
+  const currentApplication = useMemo(() => {
     if (!drawer.data) {
       return undefined;
     }
 
-    return orders.find((order) => order.id === drawer.data);
-  }, [drawer, orders]);
+    return applications.find((application) => application.uuid === drawer.data);
+  }, [drawer, applications]);
 
-  usePageView();
+  // usePageView();
 
   const handleFiltersChange = useCallback(
     (filters) => {
@@ -115,6 +115,7 @@ const Page = () => {
       updateSearch((prevState) => ({
         ...prevState,
         rowsPerPage: parseInt(event.target.value, 10),
+        page: 0,
       }));
     },
     [updateSearch]
@@ -174,12 +175,9 @@ const Page = () => {
             top: 0,
           }}
         >
-          <OrderListContainer open={drawer.isOpen}>
+          <ApplicationListContainer open={drawer.isOpen}>
             <Box sx={{ p: 3 }}>
-              <Stack alignItems="flex-start"
-direction="row"
-justifyContent="space-between"
-spacing={4}>
+              <Stack alignItems="flex-start" direction="row" justifyContent="space-between" spacing={4}>
                 <div>
                   <Typography variant="h4">Applicazioni</Typography>
                 </div>
@@ -199,28 +197,28 @@ spacing={4}>
             </Box>
 
             <Divider />
-            <OrderListSearch
+            <ApplicationListSearch
               onFiltersChange={handleFiltersChange}
               onSortChange={handleSortChange}
               sortBy={search.sortBy}
               sortDir={search.sortDir}
             />
             <Divider />
-            <OrderListTable
+            <ApplicationListTable
               onOrderSelect={handleOrderOpen}
               onPageChange={handlePageChange}
               onRowsPerPageChange={handleRowsPerPageChange}
-              orders={orders}
-              ordersCount={ordersCount}
+              applications={applications}
+              applicationsCount={applicationCount}
               page={search.page}
               rowsPerPage={search.rowsPerPage}
             />
-          </OrderListContainer>
-          <OrderDrawer
+          </ApplicationListContainer>
+          <ApplicationDrawer
             container={rootRef.current}
             onClose={handleOrderClose}
             open={drawer.isOpen}
-            order={currentOrder}
+            application={currentApplication}
           />
         </Box>
       </Box>

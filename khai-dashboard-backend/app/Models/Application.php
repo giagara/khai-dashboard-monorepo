@@ -17,4 +17,14 @@ class Application extends Model
         'date_add' => 'datetime',
         'date_upd' => 'datetime',
     ];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
@@ -60,6 +61,9 @@ Route::prefix('v1')->group(function () {
             Route::get('stats', [DashboardController::class, 'stats'])->name('stats');
 
         });
+
+        Route::get('application/{application}/users', [ApplicationController::class, 'users']);
+        Route::resource("application", ApplicationController::class);
 
     });
 
