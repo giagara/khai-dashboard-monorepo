@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import numeral from 'numeral';
 import { Box, Table, TableBody, TableCell, TablePagination, TableRow, Typography } from '@mui/material';
-import { SeverityPill } from '../../components/severity-pill';
+import { SeverityPill } from '../../../components/severity-pill';
 
 const statusMap = {
   1: 'success',
@@ -45,8 +45,7 @@ export const ApplicationListTable = (props) => {
                 >
                   <Box sx={{ ml: 2 }}>
                     <Typography variant="subtitle2">{application.name}</Typography>
-                    <Typography color="text.secondary"
-variant="body2">
+                    <Typography color="text.secondary" variant="body2">
                       {application.uuid}
                     </Typography>
                   </Box>

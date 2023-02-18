@@ -1,16 +1,13 @@
 import Head from 'next/head';
 import { Box, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
-import { usePageView } from '../../../hooks/use-page-view';
-import { Layout as DashboardLayout } from '../../../layouts/dashboard';
-import { JobCreateForm } from '../../../sections/dashboard/jobs/job-create-form';
+import { Layout as DashboardLayout } from '../../layouts/dashboard';
+import { ApplicationCreateForm } from './create-form/application-create-form';
 
 const Page = () => {
-  usePageView();
-
   return (
     <>
       <Head>
-        <title>Dashboard: Job Create | KHAI ADMIN</title>
+        <title>Crea applicazione | KHAI ADMIN</title>
       </Head>
       <Box
         component="main"
@@ -46,8 +43,8 @@ const Page = () => {
             }}
           >
             <Stack maxWidth="sm" spacing={3}>
-              <Typography variant="h4">Create Job Ad</Typography>
-              <JobCreateForm />
+              <Typography variant="h4">Nuonva applicazione</Typography>
+              <ApplicationCreateForm />
             </Stack>
           </Grid>
         </Grid>

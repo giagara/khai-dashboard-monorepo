@@ -4,7 +4,10 @@ export const paths = {
   contact: '/contact',
   pricing: '/pricing',
   pages: {
-    applications: '/applications',
+    applications: {
+      list: '/applications',
+      create: '/applications/create',
+    },
   },
   auth: {
     auth0: {

@@ -2,7 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import SearchMdIcon from '@untitled-ui/icons-react/build/esm/SearchMd';
 import { Box, Divider, InputAdornment, OutlinedInput, Stack, SvgIcon, Tab, Tabs, TextField } from '@mui/material';
-import { useUpdateEffect } from '../../hooks/use-update-effect';
+import { useUpdateEffect } from '../../../hooks/use-update-effect';
 
 const tabOptions = [
   {
@@ -68,14 +68,8 @@ export const ApplicationListSearch = (props) => {
 
   return (
     <div>
-      <Stack alignItems="center"
-direction="row"
-flexWrap="wrap"
-gap={3}
-sx={{ p: 3 }}>
-        <Box component="form"
-onSubmit={handleQueryChange}
-sx={{ flexGrow: 1 }}>
+      <Stack alignItems="center" direction="row" flexWrap="wrap" gap={3} sx={{ p: 3 }}>
+        <Box component="form" onSubmit={handleQueryChange} sx={{ flexGrow: 1 }}>
           <OutlinedInput
             defaultValue=""
             fullWidth
@@ -101,8 +95,7 @@ sx={{ flexGrow: 1 }}>
           value={sortDir}
         >
           {sortOptions.map((option) => (
-            <option key={option.value}
-value={option.value}>
+            <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}

@@ -4,12 +4,13 @@ import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
 import { Box, Button, Divider, Stack, SvgIcon, Typography } from '@mui/material';
 import { applicationApi } from '../../api/applications/application.api';
 import { useMounted } from '../../hooks/use-mounted';
-import { usePageView } from '../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../layouts/dashboard';
 import { ApplicationDrawer } from './application-drawer';
-import { ApplicationListContainer } from './application-list-container';
-import { ApplicationListSearch } from './application-list-search';
-import { ApplicationListTable } from './application-list-table';
+import { ApplicationListContainer } from './list/application-list-container';
+import { ApplicationListSearch } from './list/application-list-search';
+import { ApplicationListTable } from './list/application-list-table';
+import NextLink from 'next/link';
+import { paths } from '../../paths';
 
 const useSearch = () => {
   const [search, setSearch] = useState({
@@ -188,6 +189,8 @@ const Page = () => {
                         <PlusIcon />
                       </SvgIcon>
                     }
+                    component={NextLink}
+                    href={paths.pages.applications.create}
                     variant="contained"
                   >
                     Aggiungi

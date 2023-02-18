@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreApplicationRequest;
 use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,9 +34,19 @@ class ApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreApplicationRequest $request)
     {
-        //
+
+        $application = new Application;
+        $application->fill($request->validated());
+
+        if($request->apikey === ""){
+            $application->apikey = Str::lower(Str::random(10));
+        }
+
+        $application->save();
+
+        return $application;
     }
 
     /**

@@ -1,24 +1,8 @@
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import ShoppingCart03Icon from '@untitled-ui/icons-react/build/esm/ShoppingCart03';
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  SvgIcon,
-  Typography
-} from '@mui/material';
-import {
-  Timeline,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineSeparator
-} from '@mui/lab';
+import { Avatar, Box, Button, Card, CardContent, CardHeader, SvgIcon, Typography } from '@mui/material';
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
 
 export const OrderLogs = (props) => {
   const { logs, ...other } = props;
@@ -30,7 +14,7 @@ export const OrderLogs = (props) => {
         <Timeline
           sx={{
             m: 0,
-            p: 0
+            p: 0,
           }}
         >
           {logs.map((log, index) => {
@@ -42,15 +26,15 @@ export const OrderLogs = (props) => {
                 key={log.id}
                 sx={{
                   '&::before': {
-                    display: 'none'
-                  }
+                    display: 'none',
+                  },
                 }}
               >
                 <TimelineSeparator>
                   <TimelineDot
                     sx={{
                       border: 0,
-                      p: 0
+                      p: 0,
                     }}
                   >
                     <Avatar>
@@ -59,19 +43,11 @@ export const OrderLogs = (props) => {
                       </SvgIcon>
                     </Avatar>
                   </TimelineDot>
-                  {showConnector && (
-                    <TimelineConnector sx={{ minHeight: 30 }} />
-                  )}
+                  {showConnector && <TimelineConnector sx={{ minHeight: 30 }} />}
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography variant="body2">
-                    {log.message}
-                  </Typography>
-                  <Typography
-                    color="text.secondary"
-                    sx={{ mt: 1 }}
-                    variant="caption"
-                  >
+                  <Typography variant="body2">{log.message}</Typography>
+                  <Typography color="text.secondary" sx={{ mt: 1 }} variant="caption">
                     {createdAt}
                   </Typography>
                 </TimelineContent>
@@ -83,12 +59,10 @@ export const OrderLogs = (props) => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            mt: 2
+            mt: 2,
           }}
         >
-          <Button color="inherit">
-            Load more
-          </Button>
+          <Button color="inherit">Load more</Button>
         </Box>
       </CardContent>
     </Card>
@@ -96,5 +70,5 @@ export const OrderLogs = (props) => {
 };
 
 OrderLogs.propTypes = {
-  logs: PropTypes.array.isRequired
+  logs: PropTypes.array.isRequired,
 };

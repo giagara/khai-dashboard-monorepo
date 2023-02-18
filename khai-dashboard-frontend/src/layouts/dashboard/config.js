@@ -42,7 +42,7 @@ export const getSections = (t) => [
       },
       {
         title: 'Applicazioni',
-        path: paths.pages.applications,
+        path: paths.pages.applications.list,
         icon: (
           <SvgIcon fontSize="small">
             <List />
@@ -465,9 +465,7 @@ export const getSections = (t) => [
             <File01Icon />
           </SvgIcon>
         ),
-        label: <Chip color="primary"
-label="New"
-size="small" />,
+        label: <Chip color="primary" label="New" size="small" />,
       },
       {
         title: 'Blank',

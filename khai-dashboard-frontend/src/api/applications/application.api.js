@@ -39,6 +39,24 @@ class ApplicationApi {
       }
     });
   }
+
+  async save(data) {
+    //await wait(100);
+
+    return new Promise((resolve, reject) => {
+      try {
+        // Find the users
+
+        axios.post(`application`, data).then((response) => {
+          resolve(response.data);
+        });
+        // Create the access token
+      } catch (err) {
+        console.error('[ApplicationApi Api]: ', err);
+        reject(new Error('Internal server error'));
+      }
+    });
+  }
 }
 
 export const applicationApi = new ApplicationApi();
