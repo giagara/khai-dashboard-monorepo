@@ -40,10 +40,14 @@ export const ApplicationsList = (props) => {
           <TableBody>
             {applications.map((application) => {
               return (
-                <TableRow key={application.apikey} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableRow key={application.apikey}
+sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                   <TableCell>
-                    <Link color="text.primary" href="#">
-                      <Stack alignItems="center" direction="row" spacing={2}>
+                    <Link color="text.primary"
+href="#">
+                      <Stack alignItems="center"
+direction="row"
+spacing={2}>
                         <SvgIcon fontSize="small">
                           <LinkExternal01Icon />
                         </SvgIcon>
@@ -71,5 +75,5 @@ export const ApplicationsList = (props) => {
 };
 
 ApplicationsList.propTypes = {
-  pages: PropTypes.array.isRequired,
+  applications: PropTypes.array.isRequired,
 };

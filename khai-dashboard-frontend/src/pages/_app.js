@@ -24,6 +24,8 @@ import '../libs/mapbox';
 import '../locales/i18n';
 import { SettingsButton } from '../components/settings-button';
 import { SettingsDrawer } from '../components/settings-drawer';
+import { ReactNotifications } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -48,6 +50,7 @@ const App = (props) => {
       </Head>
       <ReduxProvider store={store}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <ReactNotifications />
           <AuthProvider>
             <AuthConsumer>
               {(auth) => (

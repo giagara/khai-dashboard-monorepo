@@ -24,6 +24,7 @@ class Application extends Model
     protected $casts = [
         'date_add' => 'datetime',
         'date_upd' => 'datetime',
+        'active' => 'boolean'
     ];
 
     /**
@@ -45,6 +46,7 @@ class Application extends Model
     {
         static::creating(function ($application) {
             $application->uuid = Str::uuid();
+            $application->active = 1;
         });
     }
 }

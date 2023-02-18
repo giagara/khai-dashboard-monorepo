@@ -1,6 +1,9 @@
 import axios from "axios";
+import { useEffect } from "react";
 import Cookies from 'js-cookie';
 import { URLS, AXIOS_HEADER } from "../config";
+import { useRouter } from 'next/router';
+import { notification } from "./notification";
 
 const instance = axios.create({
     baseURL: URLS.backend,
@@ -39,6 +42,136 @@ const setCSRFToken = () => {
 
 // attach your interceptor
 // instance.interceptors.request.use(onRequest, null);
+
+const AxiosInterceptor = ({ children }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const resInterceptor = (response) => {
+      return response;
+    };
+
+    const errInterceptor = (error) => {
+      /**
+       * 401 ERROR
+       */
+      if (
+        error.response.status === 401 &&
+        localStorage.getItem("user") !== null
+      ) {
+        console.log("401, logout");
+        localStorage.removeItem("user");
+        localStorage.removeItem("permissions");
+        router.push("/login");
+      }
+
+      /**
+       * 403 ERROR
+       */
+      if (error.response.status === 403) {
+        console.log("403, unauthorized");
+        notification.show(
+          "Unauthorized",
+          `You are not authorized to perform this action: ${
+            error.response.data.message || ""
+          }`,
+          "warning"
+        );
+      }
+
+      /**
+       * 422 Error
+       */
+      if (error.response.status === 422) {
+        console.log("422, Unprocessable Entity");
+
+        const message = error.response.data.hasOwnProperty("message")
+          ? error.response.data.message
+          : "Unprocessable Entity";
+
+        let errors = "";
+        // debugger;
+        for (const [key, value] of Object.entries(error.response.data.errors)) {
+          errors += `${key}: ${value}`;
+        }
+
+        notification.show(message, errors, "danger");
+        //throw 'test';
+        // return error.response;
+      }
+
+      /**
+       * 404 Error
+       */
+      if (error.response.status === 404) {
+        console.log("404");
+        console.error(error.response);
+        router.push("/404");
+      }
+
+      /**
+       * 429 Error
+       */
+      if (error.response.status === 429) {
+        console.log("429");
+        router.push("/429");
+      }
+
+      /**
+       * 500 ERROR
+       */
+      if (error.response.status === 500) {
+        if (window.location.pathname.split("/").pop() !== "500") {
+          console.log("500");
+          console.error(error.response);
+          router.push("/500");
+        }
+      }
+
+      /**
+       * 503 ERROR
+       */
+      if (error.response.status === 503) {
+        console.log("503");
+        console.error(error.response);
+        window.location.reload();
+      }
+
+      return Promise.reject(error);
+    };
+
+    const interceptor = instance.interceptors.response.use(
+      resInterceptor,
+      errInterceptor
+    );
+
+    return () => instance.interceptors.response.eject(interceptor);
+  }, [router]);
+
+  return children;
+};
+
+instance.interceptors.response.use(
+  (response) => response,
+    (error) => {
+
+        if (error.response.status === 422) {
+            const message = error.response.data.hasOwnProperty("message")
+            ? error.response.data.message
+            : "Unprocessable Entity";
+
+            let errors = "";
+            // debugger;
+            for (const [key, value] of Object.entries(error.response.data.errors)) {
+                errors += `${key}: ${value}`;
+            }
+
+            notification.show(message, errors, "danger");
+        }
+
+        return Promise.reject((error.response && error.response.data) || 'Something went wrong')
+    }
+);
 
 
 export default instance;
