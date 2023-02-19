@@ -5,10 +5,10 @@ import { Box, Table, TableBody, TableCell, TablePagination, TableRow, Typography
 import { SeverityPill } from '../../../components/severity-pill';
 
 const statusMap = {
-  1: 'success',
+  true: 'success',
   // pending: 'info',
   // canceled: 'warning',
-  0: 'error',
+  false: 'error',
 };
 
 export const ApplicationListTable = (props) => {
@@ -28,7 +28,9 @@ export const ApplicationListTable = (props) => {
       <Table>
         <TableBody>
           {applications.map((application) => {
-            const statusColor = statusMap[application.active] || 'warning';
+            const statusColor = statusMap[application.active.toString()] || 'warning';
+
+            //debugger;
 
             return (
               <TableRow
@@ -45,7 +47,8 @@ export const ApplicationListTable = (props) => {
                 >
                   <Box sx={{ ml: 2 }}>
                     <Typography variant="subtitle2">{application.name}</Typography>
-                    <Typography color="text.secondary" variant="body2">
+                    <Typography color="text.secondary"
+variant="body2">
                       {application.uuid}
                     </Typography>
                   </Box>

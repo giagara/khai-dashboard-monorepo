@@ -12,7 +12,8 @@ export const ApplicationApiKeyStep = (props) => {
   };
 
   return (
-    <Stack spacing={3} {...other}>
+    <Stack spacing={3}
+{...other}>
       <div>
         <Typography variant="h6">Vuoi impostare un'api key specifica per questa applicazione?</Typography>
       </div>
@@ -27,7 +28,9 @@ export const ApplicationApiKeyStep = (props) => {
           value={applicationDetail.api_key}
         />
       </Stack>
-      <Stack alignItems="center" direction="row" spacing={2}>
+      <Stack alignItems="center"
+direction="row"
+spacing={2}>
         <Button
           endIcon={
             <SvgIcon>
@@ -37,10 +40,11 @@ export const ApplicationApiKeyStep = (props) => {
           onClick={onNext}
           variant="contained"
         >
-          Create Job
+          Crea applicazione
         </Button>
-        <Button color="inherit" onClick={onBack}>
-          Back
+        <Button color="inherit"
+onClick={onBack}>
+          Indietro
         </Button>
       </Stack>
     </Stack>

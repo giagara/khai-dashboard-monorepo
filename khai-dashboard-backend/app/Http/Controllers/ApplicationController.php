@@ -6,6 +6,7 @@ use App\Http\Requests\StoreApplicationRequest;
 use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class ApplicationController extends Controller
@@ -40,7 +41,7 @@ class ApplicationController extends Controller
         $application = new Application;
         $application->fill($request->validated());
 
-        if($request->apikey === ""){
+        if(($request->apikey ?? "") === ""){
             $application->apikey = Str::lower(Str::random(10));
         }
 

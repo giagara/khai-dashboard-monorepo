@@ -83,10 +83,7 @@ export const ApplicationDetails = (props) => {
   return (
     <Stack spacing={6}>
       <Stack spacing={3}>
-        <Stack alignItems="center"
-direction="row"
-justifyContent="space-between"
-spacing={3}>
+        <Stack alignItems="center" direction="row" justifyContent="space-between" spacing={3}>
           <Typography variant="h6">Details</Typography>
           <Button
             color="inherit"
@@ -102,22 +99,10 @@ spacing={3}>
           </Button>
         </Stack>
         <PropertyList>
-          <PropertyListItem align={align}
-disableGutters
-divider
-label="Nome"
-value={application.name} />
-          <PropertyListItem align={align}
-disableGutters
-divider
-label="UUID"
-value={application.uuid} />
-          <PropertyListItem align={align}
-disableGutters
-divider
-label="Tipo">
-            <Typography color="text.secondary"
-variant="body2">
+          <PropertyListItem align={align} disableGutters divider label="Nome" value={application.name} />
+          <PropertyListItem align={align} disableGutters divider label="UUID" value={application.uuid} />
+          <PropertyListItem align={align} disableGutters divider label="Tipo">
+            <Typography color="text.secondary" variant="body2">
               <SeverityPill color={typeColor}>{application.tipo}</SeverityPill>
             </Typography>
           </PropertyListItem>
@@ -128,10 +113,7 @@ variant="body2">
             label="Utenti totali"
             value={application.users_count}
           />
-          <PropertyListItem align={align}
-disableGutters
-divider
-label="Status">
+          <PropertyListItem align={align} disableGutters divider label="Status">
             <SeverityPill color={statusColor}>{application.active ? 'ATTIVA' : 'DISATTIVA'}</SeverityPill>
           </PropertyListItem>
         </PropertyList>

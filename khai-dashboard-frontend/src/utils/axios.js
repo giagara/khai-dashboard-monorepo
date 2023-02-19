@@ -167,6 +167,19 @@ instance.interceptors.response.use(
             }
 
             notification.show(message, errors, "danger");
+      }
+      
+        if (error.response.status === 500) {
+            const ex_name = error.response.data.hasOwnProperty("exception")
+            ? error.response.data.exception
+            : "Server error";
+          
+            const message = error.response.data.hasOwnProperty("message")
+            ? error.response.data.message
+            : "";
+
+
+            notification.show("Server error", `${ex_name}: ${message}`, "danger");
         }
 
         return Promise.reject((error.response && error.response.data) || 'Something went wrong')
