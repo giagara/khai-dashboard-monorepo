@@ -167,7 +167,7 @@ instance.interceptors.response.use(
             }
 
             notification.show(message, errors, "danger");
-      }
+        }
       
         if (error.response.status === 500) {
             const ex_name = error.response.data.hasOwnProperty("exception")
@@ -180,6 +180,10 @@ instance.interceptors.response.use(
 
 
             notification.show("Server error", `${ex_name}: ${message}`, "danger");
+      }
+      
+        if (error.response.status === 404) {
+          notification.show("PAge not found", "", "warning");
         }
 
         return Promise.reject((error.response && error.response.data) || 'Something went wrong')
